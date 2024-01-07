@@ -13,9 +13,9 @@ import seaborn as sns
 
 
 
-sample = pd.read_csv('../Data/sample_submission/sample_submission.csv')
-test = pd.read_csv('../Data/test/test.csv')
-train = pd.read_csv('../Data/train/train.csv')
+sample = pd.read_csv('sample_submission/sample_submission.csv')
+test = pd.read_csv('test/test.csv')
+train = pd.read_csv('train/train.csv')
 
 import nltk
 # nltk.download('wordnet')
