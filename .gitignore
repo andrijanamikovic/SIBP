@@ -151,3 +151,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /Dokumentacija/
+Data/glove.6B.100d.txt
+Data/glove.6B.200d.txt
+Data/glove.6B.300d.txt
+Data/glove.6B.50d.txt

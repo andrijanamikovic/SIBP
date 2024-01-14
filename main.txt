@@ -1,0 +1,49 @@
+        id                                               text author
+0  id26305  This process, however, afforded me no means of...    EAP
+1  id17569  It never once occurred to me that the fumbling...    HPL
+2  id11008  In his left hand was a gold snuff box, from wh...    EAP
+3  id27763  How lovely is spring As we looked from Windsor...    MWS
+4  id12958  Finding nothing else, not even gold, the Super...    HPL
+        id                                               text
+0  id02310  Still, as I urged our leaving Ireland with suc...
+1  id24541  If a fire wanted fanning, it could readily be ...
+2  id00134  And when they had broken down the frail door t...
+3  id27757  While I was thinking how I should possibly man...
+4  id04081  I am not sure to what limit his knowledge may ...
+        id       EAP       HPL       MWS
+0  id02310  0.403494  0.287808  0.308698
+1  id24541  0.403494  0.287808  0.308698
+2  id00134  0.403494  0.287808  0.308698
+3  id27757  0.403494  0.287808  0.308698
+4  id04081  0.403494  0.287808  0.308698
+The average number of words in a document is: 26.730476530977068.
+The minimum number of words in a document is: 2.
+The maximum number of words in a document is: 861.
+This process, however, afforded me no means of ascertaining the dimensions of my dungeon; as I might make its circuit, and return to the point whence I set out, without being aware of the fact; so perfectly uniform seemed the wall.
+['This', 'process', ',', 'however', ',', 'afforded', 'me', 'no', 'means', 'of', 'ascertaining', 'the', 'dimensions', 'of', 'my', 'dungeon', ';', 'as', 'I', 'might', 'make', 'its', 'circuit', ',', 'and', 'return', 'to', 'the', 'point', 'whence', 'I', 'set', 'out', ',', 'without', 'being', 'aware', 'of', 'the', 'fact', ';', 'so', 'perfectly', 'uniform', 'seemed', 'the', 'wall', '.']
+['process', ',', 'however', ',', 'afforded', 'means', 'ascertaining', 'dimensions', 'dungeon', ';', 'might', 'make', 'circuit', ',', 'return', 'point', 'whence', 'set', ',', 'without', 'aware', 'fact', ';', 'perfectly', 'uniform', 'seemed', 'wall', '.']
+==========================================================================================
+Length of original list: 48 words
+Length of list after stopwords removal: 28 words
+['process', ',', 'however', ',', 'afforded', 'means', 'ascertaining', 'dimensions', 'dungeon', ';', 'might', 'make', 'circuit', ',', 'return', 'point', 'whence', 'set', ',', 'without', 'aware', 'fact', ';', 'perfectly', 'uniform', 'seemed', 'wall', '.']
+                                                text                                       cleaned_text
+0  This process, however, afforded me no means of...  process   however   afforded mean ascertaining...
+1  It never once occurred to me that the fumbling...       never occurred fumbling might mere mistake
+2  In his left hand was a gold snuff box, from wh...  left hand wa gold snuff box     capered hill  ...
+3  How lovely is spring As we looked from Windsor...  lovely spring looked windsor terrace sixteen f...
+4  Finding nothing else, not even gold, the Super...  finding nothing else   even gold   superintend...
+KNN:
+Accuracy of the model: 64.4%
+Precision of the model: 72.8%
+Recall of the model: 64.4%
+F1 score of the model: 62.4%
+LogisticRegression:
+Accuracy of the model: 80.4%
+Precision of the model: 80.6%
+Recall of the model: 80.4%
+F1 score of the model: 80.4%
+DecisionTree
+Accuracy of the model: 57.8%
+Precision of the model: 57.8%
+Recall of the model: 57.8%
+F1 score of the model: 57.8%
