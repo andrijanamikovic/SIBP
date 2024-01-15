@@ -33,17 +33,28 @@ Length of list after stopwords removal: 28 words
 3  How lovely is spring As we looked from Windsor...  lovely spring looked windsor terrace sixteen f...
 4  Finding nothing else, not even gold, the Super...  finding nothing else   even gold   superintend...
 KNN:
-Accuracy of the model: 64.4%
-Precision of the model: 72.8%
-Recall of the model: 64.4%
-F1 score of the model: 62.4%
+Accuracy of the model: 68.9%
+Precision of the model: 74.45%
+Recall of the model: 68.897%
+F1 score of the model: 67.588%
 LogisticRegression:
 Accuracy of the model: 80.4%
-Precision of the model: 80.6%
-Recall of the model: 80.4%
-F1 score of the model: 80.4%
+Precision of the model: 80.568%
+Recall of the model: 80.388%
+F1 score of the model: 80.352%
 DecisionTree
-Accuracy of the model: 57.8%
-Precision of the model: 57.8%
-Recall of the model: 57.8%
-F1 score of the model: 57.8%
+Accuracy of the model: 58.5%
+Precision of the model: 58.412%
+Recall of the model: 58.495%
+F1 score of the model: 58.421%
+MultinomialNB
+Accuracy of the model: 81.3%
+Precision of the model: 82.203%
+Recall of the model: 81.324%
+F1 score of the model: 81.246%
+
+Process finished with exit code 0
+
+
+Process finished with exit code 0
+

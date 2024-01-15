@@ -11,12 +11,15 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import MultinomialNB
 sns.set_theme()
 from sklearn.model_selection import train_test_split
+import warnings
 
 sample = pd.read_csv('Data/sample_submission/sample_submission.csv')
 test = pd.read_csv('Data/test/test.csv')
 train = pd.read_csv('Data/train/train.csv')
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 import nltk
 # nltk.download('wordnet')
@@ -153,17 +156,36 @@ def train_model(model):
     model.fit(X_train, Y_train)
     Y_pred = model.predict(X_test)
     accuracy = round(accuracy_score(Y_test, Y_pred), 3)
-    precision = round(precision_score(Y_test, Y_pred, average='weighted'), 3)
-    recall = round(recall_score(Y_test, Y_pred, average='weighted'), 3)
-    fscore = round(f1_score(Y_test, Y_pred, average='weighted'), 3)
-    print(f"Accuracy of the model: {np.round(accuracy*100, 3)}%")
-    print(f"Precision of the model: {np.round(precision*100, 3)}%")
-    print(f"Recall of the model: {np.round(recall*100, 3)}%")
-    print(f"F1 score of the model: {np.round(fscore*100, 3)}%")
+    precision = round(precision_score(Y_test, Y_pred, average='weighted'), 5)
+    recall = round(recall_score(Y_test, Y_pred, average='weighted'), 5)
+    fscore = round(f1_score(Y_test, Y_pred, average='weighted'), 5)
+    print(f"Accuracy of the model: {np.round(accuracy*100, 5)}%")
+    print(f"Precision of the model: {np.round(precision*100, 5)}%")
+    print(f"Recall of the model: {np.round(recall*100, 5)}%")
+    print(f"F1 score of the model: {np.round(fscore*100, 5)}%")
 
+def knn_algotiham_plot():
+    knn_score_list = []
+    for k in range(2, 50, 1):
+        knn = KNeighborsClassifier(n_neighbors=k)
+        knn.fit(X_train, Y_train)  # ubaci u model
+        prediction = knn.predict(X_test)
+        knn_score_list.append(knn.score(X_test, Y_test))
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(range(2, 50, 1), knn_score_list, color='blue', linestyle='dashed', marker='o',
+             markerfacecolor='green', markersize=10)
+    plt.title('Precision of KNN for different k values')
+    plt.xlabel('K')
+    plt.ylabel('Precision')
+    plt.savefig('knn_alg_values.jpg')
+
+# knn_algotiham_plot()
 print("KNN:")
-train_model(KNeighborsClassifier(n_neighbors=17))
+train_model(KNeighborsClassifier(n_neighbors=43))
 print("LogisticRegression:")
 train_model(LogisticRegression(max_iter=2000))
 print("DecisionTree")
 train_model(DecisionTreeClassifier())
+print("MultinomialNB")
+train_model(MultinomialNB())
