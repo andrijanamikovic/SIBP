@@ -6,7 +6,7 @@ from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 import seaborn as sns
-from sklearn.metrics import  accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score, roc_curve, confusion_matrix, plot_confusion_matrix
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
@@ -152,7 +152,7 @@ tfidf = TfidfVectorizer()
 X_train = tfidf.fit_transform(document_train)
 X_test = tfidf.transform(document_test)
 
-def train_model(model):
+def train_model(model, label):
     model.fit(X_train, Y_train)
     Y_pred = model.predict(X_test)
     accuracy = round(accuracy_score(Y_test, Y_pred), 3)
@@ -163,6 +163,11 @@ def train_model(model):
     print(f"Precision of the model: {np.round(precision*100, 5)}%")
     print(f"Recall of the model: {np.round(recall*100, 5)}%")
     print(f"F1 score of the model: {np.round(fscore*100, 5)}%")
+
+    # Plot Confusion Matrix
+    disp = plot_confusion_matrix(model, X_test, Y_test, cmap=plt.cm.Blues, values_format='d', display_labels=np.unique(Y_test))
+    disp.ax_.set_title('Confusion Matrix')
+    plt.savefig(f'confusion_matrix_{label}.jpg')
 
 def knn_algotiham_plot():
     knn_score_list = []
@@ -182,10 +187,10 @@ def knn_algotiham_plot():
 
 # knn_algotiham_plot()
 print("KNN:")
-train_model(KNeighborsClassifier(n_neighbors=43))
+train_model(KNeighborsClassifier(n_neighbors=43), 'KNN')
 print("LogisticRegression:")
-train_model(LogisticRegression(max_iter=2000))
+train_model(LogisticRegression(max_iter=2000), "logistic_regression")
 print("DecisionTree")
-train_model(DecisionTreeClassifier())
+train_model(DecisionTreeClassifier(), 'decision_tree')
 print("MultinomialNB")
-train_model(MultinomialNB())
+train_model(MultinomialNB(), 'multinomialNB')
